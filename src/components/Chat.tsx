@@ -5,7 +5,8 @@ import { jwtDecode } from "jwt-decode";
 const ChatApp = () => {
   const [message, setMessage] = useState<string>("");
   const [userId, setUserId] = useState<string>("");
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  // const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = "https://anychat-backend.onrender.com";
   // console.log(backendUrl);
   const { messages, sendMessage, clearChat } = useWebSocket(backendUrl, userId);
 

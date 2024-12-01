@@ -5,7 +5,8 @@ const Login = ({ onLoginSuccess }: { onLoginSuccess: () => void }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  // const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = "https://anychat-backend.onrender.com";
   const loginUrl = `${backendUrl}/api/auth/local`;
   console.log("Login Url", backendUrl);
   const handleLogin = async () => {

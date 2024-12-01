@@ -5,8 +5,7 @@ import { jwtDecode } from "jwt-decode";
 const ChatApp = () => {
   const [message, setMessage] = useState<string>("");
   const [userId, setUserId] = useState<string>("");
-  const backendUrl =
-    import.meta.env.VITE_BACKEND_URL || "http://localhost:1337";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   // console.log(backendUrl);
   const { messages, sendMessage, clearChat } = useWebSocket(backendUrl, userId);
 

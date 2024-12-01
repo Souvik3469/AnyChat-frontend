@@ -6,8 +6,7 @@ const Register = ({ onRegisterSuccess }: { onRegisterSuccess: () => void }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const backendUrl =
-    import.meta.env.VITE_BACKEND_URL || "http://localhost:1337";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const registerUrl = `${backendUrl}/api/auth/local/register`;
 
   const handleRegister = async () => {

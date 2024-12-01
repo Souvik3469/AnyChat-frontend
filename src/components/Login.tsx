@@ -6,8 +6,9 @@ const Login = ({ onLoginSuccess }: { onLoginSuccess: () => void }) => {
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
+    import.meta.env.VITE_BACKEND_URL || "http://localhost:1337";
   const loginUrl = `${backendUrl}/api/auth/local`;
+  console.log("Login Url", backendUrl);
   const handleLogin = async () => {
     try {
       const response = await axios.post(loginUrl, {

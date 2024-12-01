@@ -6,7 +6,7 @@ const ChatApp = () => {
   const [message, setMessage] = useState<string>("");
   const [userId, setUserId] = useState<string>("");
   const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
+    import.meta.env.VITE_BACKEND_URL || "http://localhost:1337";
   // console.log(backendUrl);
   const { messages, sendMessage, clearChat } = useWebSocket(backendUrl, userId);
 

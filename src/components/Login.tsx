@@ -5,16 +5,15 @@ const Login = ({ onLoginSuccess }: { onLoginSuccess: () => void }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
-
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
+  const loginUrl = `${backendUrl}/api/auth/local`;
   const handleLogin = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:1337/api/auth/local",
-        {
-          identifier: email,
-          password,
-        }
-      );
+      const response = await axios.post(loginUrl, {
+        identifier: email,
+        password,
+      });
       console.log("Login response", response);
 
       const { jwt } = response.data;

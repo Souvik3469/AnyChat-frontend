@@ -6,17 +6,16 @@ const Register = ({ onRegisterSuccess }: { onRegisterSuccess: () => void }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
-
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
+  const registerUrl = `${backendUrl}/api/auth/local/register`;
   const handleRegister = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:1337/api/auth/local/register",
-        {
-          username,
-          email,
-          password,
-        }
-      );
+      const response = await axios.post(registerUrl, {
+        username,
+        email,
+        password,
+      });
 
       console.log("Register response", response);
 
